@@ -100,5 +100,9 @@ async def product_buying(call: types.CallbackQuery):
     await call.message.answer('Вы успешно приобрели продукт!')
     await call.answer()
 
+@dp.message_handler()
+async def all_message(message: types.Message):
+    await message.answer(f'Введите команду /start, чтобы начать общение!')
+
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
